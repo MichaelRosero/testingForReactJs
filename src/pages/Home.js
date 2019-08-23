@@ -5,13 +5,14 @@ import Formulario from '../components/Formulario';
 
 class Home extends Component{
     state = {form:{} };
-    handleChange = (e) => {        
+
+    handleChange = (e) => {    
+        const nextForm = this.state.form;
+        nextForm[e.target.name] = e.target.value;
+    
         this.setState(
             {
-              form:{
-                 this: this.state.form,
-                 [e.target.name] : e.target.value
-              }  
+              form:nextForm  
 
             });
     }
@@ -26,6 +27,5 @@ class Home extends Component{
             </div>
         )
     }
-
 }
 export default Home;
