@@ -4,10 +4,16 @@ import Navbar from '../components/Navbar';
 import Formulario from '../components/Formulario';
 
 class Home extends Component{
-    state ={};
-    changing = (e) => {
-        console.log("hola");
-        this.setState({[e.target.name]: e.target.value});
+    state = {form:{} };
+    handleChange = (e) => {        
+        this.setState(
+            {
+              form:{
+                 this: this.state.form,
+                 [e.target.name] : e.target.value
+              }  
+
+            });
     }
     render(){
         return(
@@ -15,7 +21,7 @@ class Home extends Component{
                 <Navbar/>
                 <div>
                     <p>Testing</p>
-                    <Formulario onChange={this.changing}/>
+                    <Formulario onChange={this.handleChange} formValues={this.state.form}/>
                 </div>
             </div>
         )
